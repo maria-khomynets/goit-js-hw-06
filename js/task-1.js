@@ -1,14 +1,30 @@
-function makeTransaction(quantity, pricePerDroid, customerCredits) {
-  const totalSum = quantity * pricePerDroid;
-  if (totalSum <= customerCredits) {
-    return `You ordered ${quantity} droids worth ${totalSum} credits!`;
-  } else {
-    return `Insufficient funds!`;
-  }
-}
+const customer = {
+  username: 'Mango',
+  balance: 24000,
+  discount: 0.1,
+  orders: ['Burger', 'Pizza', 'Salad'],
+  // Change code below this line
+  getBalance() {
+    return balance;
+  },
+  getDiscount() {
+    return discount;
+  },
+  setDiscount(value) {
+    discount = value;
+  },
+  getOrders() {
+    return orders;
+  },
+  addOrder(cost, order) {
+    balance -= cost - cost * discount;
+    orders.push(order);
+  },
+  // Change code above this line
+};
 
-console.log(makeTransaction(5, 3000, 23000)); // "You ordered 5 droids worth 15000 credits!"
-console.log(makeTransaction(3, 1000, 15000)); // "You ordered 3 droids worth 3000 credits!"
-console.log(makeTransaction(10, 5000, 8000)); // "Insufficient funds!"
-console.log(makeTransaction(8, 2000, 10000)); // "Insufficient funds!"
-console.log(makeTransaction(10, 500, 5000)); // "You ordered 10 droids worth 5000 credits!"
+customer.setDiscount(0.15);
+console.log(customer.getDiscount()); // 0.15
+customer.addOrder(5000, 'Steak');
+console.log(customer.getBalance()); // 19750
+console.log(customer.getOrders()); // ["Burger", "Pizza", "Salad", "Steak"]
