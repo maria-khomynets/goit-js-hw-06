@@ -43,6 +43,8 @@ const chopShop = {
     { name: 'Ruby', price: 800, quantity: 2 },
   ],
   calcTotalPrice(stoneName) {
+    console.log(this);
+
     // const stone = this.stones.find((item) => item.name === stoneName);
     // //      undefined => false => !false => true
     // if(!stone) {
